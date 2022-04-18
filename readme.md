@@ -9,11 +9,12 @@
 * Hardware Availability: https://www.etsy.com/de/shop/thnikk (discontinued)
 * Original Firmware Source: https://github.com/thnikk/oldKeypad/blob/master/proMicroPadNew/proMicroPadNew.ino (for single color leds)  
 
-This is an alternative firmware using qmk for the LED osu! Keypad (r2). This firmware improves the handling of the side button, to behave like a normal ESC key. This is needed for osu!lazer, as the pause menu requires the ESC button to be held for a short time.
+This is an alternative firmware using qmk for the LED osu! Keypad (r2). This firmware improves the handling of the side button, to behave like a normal ESC key. This is needed for osu!lazer, as the pause menu requires the ESC button to be held for a short time. Currently just tapping the side button equates to a 170ms ESC key press, holding can extend that time to however long you press the button.
 
 ### Implementation Progress:
 - [x] Z and X keys
 - [x] ESC key as the side button
+- [x] enter bootloader when rapidly tappig side button 5 times
 - [ ] LEDs
 
 ## Installation
@@ -30,7 +31,7 @@ This is an alternative firmware using qmk for the LED osu! Keypad (r2). This fir
 ### Flashing with this qmk firmware already installed:
 1. run `qmk flash -kb osu_keypad -km default`
 2. wait until it says `Waiting for USB serial port - reset your controller now`
-3. press all buttons at the same time to get into the bootloader 
+3. press the side button quickly 5 times to get into the bootloader 
 
 ### Flash original firmware
 Unfortunatly qmk doesn't allow for accessing the bootloader by opening an exposed serial port. As such flashing with the Arduino IDE doesn't work. Thus we will use the Arduino IDE to compile the code, and flash it with AVRdude.  
@@ -53,7 +54,7 @@ If you have the Arduino IDE installed you should already have AVRdude. On Linux 
 
 In quick succession:  
 
-    #press all buttons on the keypad to enter bootloader
+    #press the side button quickly 5 times to enter bootloader
     sudo avrdude -p m32u4 -c avr109 -P /dev/ttyACM0 -U flash:w:proMicroPadNew.ino.leonardo.hex:i
 
 It might be necessary to change the tty or filename  
@@ -62,7 +63,7 @@ It might be necessary to change the tty or filename
 
 1. In the folder with the binary SHIFT + right click
 2. Click "Open Powershell here"  
-3. press all buttons on the keypad at once (wait for the windows disconnect sound)
+3. press the side button quickly 5 times (wait for the windows disconnect sound)
 4. immideatly run `[System.IO.Ports.SerialPort]::getportnames()`
 5. the command should return a COMn port with n being number
 
@@ -75,7 +76,7 @@ I recommend preparing the command beforehand:
 
 In quick succession (wait for the windows disconnect sound):
 
-    #press all buttons on the keypad to enter bootloader
+    #press the side button quickly 5 times to enter bootloader
     C:\"Program Files (x86)"\Arduino\hardware\tools\avr\bin\avrdude.exe -p m32u4 -c avr109 -C C:\"Program Files (x86)"\Arduino\hardware\tools\avr\etc\avrdude.conf -P COMn -U flash:w:proMicroPadNew.ino.leonardo.hex:i
 
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).

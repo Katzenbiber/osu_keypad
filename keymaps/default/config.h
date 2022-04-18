@@ -1,5 +1,3 @@
 #pragma once
 
-/* combo stuff */
-#undef COMBO_COUNT
-#define COMBO_COUNT 1
+#define TAPPING_TERM 170
