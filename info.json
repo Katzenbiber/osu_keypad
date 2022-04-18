@@ -2,7 +2,7 @@
     "manufacturer": "Christopher Wr\u00f3bel",
     "keyboard_name": "osu_keypad",
     "maintainer": "katzenbiber",
-    "bootloader": "atmel-dfu",
+    "bootloader": "caterina",
     "diode_direction": "COL2ROW",
     "features": {
         "bootmagic": false,
@@ -14,7 +14,7 @@
     },
     "matrix_pins": {
         "direct": [
-            ["D4", "D0", "D1"]
+            ["D4", "D1", "D0"]
         ]
     },
     "processor": "atmega32u4",
