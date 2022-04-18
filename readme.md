@@ -41,6 +41,8 @@ If you have the Arduino IDE installed you should already have AVRdude. On Linux 
 3. go to Tools -> Board and choose Arduino Leonardo
     - if not available, install "Arduino AVR Boards" in the Board Manager
 4. press the button in the top left with the checkmark to compile the sketch
+    - if the compiler complains about missing libraries go to Tools -> Manage Libaries
+    - Install "Bounce2" and "Keyboard"
 4. export the compiled binary by going to Sketch -> Export compiled binary
 5. go into to user directory -> Arduino -> proMicroPadNew
 6. there should be a file called proMicroPadNew.ino.leonardo.hex
