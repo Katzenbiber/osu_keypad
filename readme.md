@@ -43,9 +43,11 @@ If you have the Arduino IDE installed you should already have AVRdude. On Linux 
 4. press the button in the top left with the checkmark to compile the sketch
     - if the compiler complains about missing libraries go to Tools -> Manage Libaries
     - Install "Bounce2" and "Keyboard"
-4. export the compiled binary by going to Sketch -> Export compiled binary
-5. go into to user directory -> Arduino -> proMicroPadNew
-6. there should be a file called proMicroPadNew.ino.leonardo.hex
+5. export the compiled binary by going to Sketch -> Export compiled binary
+6. go into to user directory -> Arduino -> proMicroPadNew
+7. there should be a file called proMicroPadNew.ino.leonardo.hex
+8. press all buttons on the keypad at once to enter the bootloader
+9. quickly run the avrdude command
 
 This file can be flashed using AVRdude (Linux):
 
